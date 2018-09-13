@@ -1,11 +1,33 @@
-p.music {
+p.header {
   color: Red;
-  font-family: Impact, Charcoal, sans-serif;
-  font-size: 20px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 26px;
 }
 
-p.app {
-  color: Blue;
-  font-family: "Comic Sans MS", cursive, sans-serif;
-  font-size: 20px;
+.text_shadow {
+  text-shadow: black 0 -2px;
+}
+
+.prompt {
+  text-shadow: red 0 -1px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+}
+
+.navlinks {
+  background-color: Aqua;
+  border: 5px, Black;
+  border-radius: 25px, 25px;
+}
+
+.user_input {
+  display: block;
+}
+
+label {
+  font-size: 16px;
+  color: Teal;
 }

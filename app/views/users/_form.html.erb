@@ -7,15 +7,16 @@
 <% end%>
 
 
-<form action="<%= action_url%>" method="post">
+<form class="user" action="<%= action_url%>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token  %>">
-  <label>E-mail:
-    <input type="email" name="user[email]" value="">
+  <label class="prompt">E-mail:
+    <input class="user_input" type="email" name="user[email]" value="">
   </label>
+  <br>
 
-  <label>Password:
-    <input type="password" name="user[password]" value="">
+  <label class="prompt">Password:
+    <input class="user_input" type="password" name="user[password]" value="">
   </label>
-
-  <input type="submit" value="<%= button_val  %>">
+  <br>
+  <input class="user_input" type="submit" value="<%= button_val  %>">
 </form>
