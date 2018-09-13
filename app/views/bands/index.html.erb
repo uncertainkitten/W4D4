@@ -1,8 +1,13 @@
 <h2><%= current_user.email%> was BAND for this post!</h2>
 
 <body>
-  <p>
   <ul><% Band.all.each do |band|%>
-    <li><%= band%></li>
+    <li><%= band.name%></li>
+    <form action="<%= band_url(band)%>" method="post">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+      <input type="submit" value="Disband">
+    </form>
+  <% end%>
   </ul>
 </body>
