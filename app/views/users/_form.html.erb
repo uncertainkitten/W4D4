@@ -1,0 +1,21 @@
+<% if type == :new %>
+  <%  action_url = users_url %>
+  <%  button_val = "Musical Journey START!"%>
+<% elsif type == :login %>
+  <%  action_url = session_url%>
+  <%  button_val = "Show me your moves!"%>
+<% end%>
+
+
+<form action="<%= action_url%>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token  %>">
+  <label>E-mail:
+    <input type="email" name="user[email]" value="">
+  </label>
+
+  <label>Password:
+    <input type="password" name="user[password]" value="">
+  </label>
+
+  <input type="submit" value="<%= button_val  %>">
+</form>

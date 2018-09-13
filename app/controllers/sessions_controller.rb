@@ -9,7 +9,7 @@ class SessionsController
 
     if @user
       session[:session_token] = @user.session_token
-      redirect_to users_url
+      redirect_to user_url
     else
       flash[:errors] = ["Email or password invalid"]
       render :new

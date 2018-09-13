@@ -8,11 +8,16 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to session_url
+      session[:session_token] = @user.session_token
+      redirect_to user_url
     else
       flash[:errors] = @user.errors.full_messages
       render :new
     end
+  end
+
+  def show
+    render :show
   end
 
   private
