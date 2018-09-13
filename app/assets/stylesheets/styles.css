@@ -1,0 +1,11 @@
+p.music {
+  color: Red;
+  font-family: Impact, Charcoal, sans-serif;
+  font-size: 20px;
+}
+
+p.app {
+  color: Blue;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 20px;
+}

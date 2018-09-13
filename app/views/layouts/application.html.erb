@@ -7,19 +7,24 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <header>
+      <p class="music">Music</p><p class="app"><i>App</i></p>
+      <% if logged_in? %>
+        <form action="<%= session_url%>" method="post">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token  %>">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" value="Make like a tree and logout">
+        </form>
+      <% else%>
+        <a href="<%= new_session_url%>">Log in to your bass</a>
+        <a href="<%=new_user_url%>">Make some treble</a>
+      <% end%>
+
   </head>
 
   <body>
-    <% if logged_in? %>
-      <form action="<%= session_url%>" method="post">
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token  %>">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="Make like a tree and logout">
-      </form>
-    <% else%>
-      <a href="<%= new_session_url%>">Log in to your bass</a>
-      <a href="<%=new_user_url%>">Make some treble</a>
-    <% end%>
+
 
 
     <% if flash[:errors] %>
