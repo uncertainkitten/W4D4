@@ -13,7 +13,12 @@ class BandsController < ApplicationController
 
   def show
     @band = Band.find_by(id: params[:id])
-    render :show
+    if @band
+      render :show
+    else
+      flash[:errors] = ['Band not found!']
+      redirect_to bands_url
+    end
   end
 
   def new

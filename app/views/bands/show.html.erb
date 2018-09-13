@@ -3,5 +3,9 @@
 <body>
   <ul>
     <li><%= @band.name%></li>
+    <% @band.albums.each do |album| %>
+    <li><a class="navlinks" href="<%= album_url%>"><%= album.title%></a></li>
+    <%end%>
   </ul>
+  <a class="navlinks" href="<%= new_band_album_url(@band)%>">New record?</a>
 </body>

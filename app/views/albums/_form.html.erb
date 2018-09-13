@@ -1,0 +1,34 @@
+<% if type == :new %>
+  <% action_url = albums_url %>
+  <% button_val = "Record that record!"%>
+<% elsif type == :edit %>
+  <%  action_url = album_url(album)%>
+  <%  button_val = "Remaster"%>
+<% end%>
+
+<form action="<%= action_url%>" method="post">
+  <% if type == :edit %>
+    <input type="hidden" name="_method" value="PATCH">
+  <%end%>
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token  %>">
+  <input type="hidden" name="album[band_id]", value="<%= band.id%>">
+  <label class="prompt">Title:
+    <input type="text" name="album[title]" value="<%= album.title%>">
+  </label>
+
+  <label class="prompt">Year:
+    <input type="text" name="album[year]" value="<%= album.year%>">
+  </label>
+
+  <label class="prompt">Recorded Live?
+
+  <input type="radio" id="liveyes?" name="album[live]" value="true"
+  <%= album.live ? "checked" : ""%>>
+  <label for="liveyes?">Yes</label>
+  <input type="radio" id="liveno?" name="album[live]" value="false"
+  <%= !album.live ? "checked" : ""%>>
+  <label for="liveno?">No</label>
+</label>
+  <br>
+  <input type="submit" value="<%= button_val%>"">
+</form>
