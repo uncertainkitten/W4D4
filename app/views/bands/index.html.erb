@@ -1,1 +1,8 @@
 <h2><%= current_user.email%> was BAND for this post!</h2>
+
+<body>
+  <p>
+  <ul><% Band.all.each do |band|%>
+    <li><%= band%></li>
+  </ul>
+</body>
