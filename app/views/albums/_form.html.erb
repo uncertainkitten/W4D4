@@ -11,24 +11,36 @@
     <input type="hidden" name="_method" value="PATCH">
   <%end%>
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token  %>">
-  <input type="hidden" name="album[band_id]", value="<%= band.id%>">
+
+  <select name="album[band_id]">
+    <% Band.all.each do |band| %>
+      <option value="<%=band.id %>"><%= band.name%></option>
+    <% end %>
+  </select>
+  <br>
+
   <label class="prompt">Title:
     <input type="text" name="album[title]" value="<%= album.title%>">
   </label>
+  <br>
 
   <label class="prompt">Year:
     <input type="text" name="album[year]" value="<%= album.year%>">
   </label>
+  <br>
 
   <label class="prompt">Recorded Live?
 
-  <input type="radio" id="liveyes?" name="album[live]" value="true"
+  <input type="radio" id="liveyes?" name="album[live]" value="t"
   <%= album.live ? "checked" : ""%>>
   <label for="liveyes?">Yes</label>
-  <input type="radio" id="liveno?" name="album[live]" value="false"
-  <%= !album.live ? "checked" : ""%>>
+
+  <input type="radio" id="liveno?" name="album[live]" value="f"
+  <%= album.live == false ? "checked" : ""%>>
   <label for="liveno?">No</label>
-</label>
+
+  </label>
+
   <br>
   <input type="submit" value="<%= button_val%>"">
 </form>

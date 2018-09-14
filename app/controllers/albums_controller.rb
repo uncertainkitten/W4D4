@@ -19,7 +19,6 @@ class AlbumsController < ApplicationController
 
   def create
     @album = Album.new(album_params)
-    @album.band_id = params[:band_id]
 
     if @album.save
       redirect_to album_url(@album)
@@ -40,6 +39,7 @@ class AlbumsController < ApplicationController
   end
 
   def update
+    debugger
     @album = Album.find_by(id: params[:id])
 
     if @album.update(album_params)

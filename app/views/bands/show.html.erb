@@ -1,11 +1,11 @@
-<h2><%= current_user.email%> 's jams'</h2>
+<h2><%= @band.name%> 's jams</h2>
 
 <body>
   <ul>
-    <li><%= @band.name%></li>
-    <% @band.albums.each do |album| %>
-    <li><a class="navlinks" href="<%= album_url%>"><%= album.title%></a></li>
-    <%end%>
+      <% @band.albums.each do |album| %>
+      <a href="<%= album_url(album.id)%>"><%= album.title%></a>
+      <%end%>
   </ul>
-  <a class="navlinks" href="<%= new_band_album_url(@band)%>">New record?</a>
+  <a href="<%= new_band_album_url(@band)%>">New record?</a>
+
 </body>

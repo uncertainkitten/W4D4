@@ -1,5 +1,3 @@
-<% @band = Band.find_by(id: params[:band_id]) %>
-<h2><%= @band.name%>, back from the studio?</h2>
 <h3>Add an album</h3>
 
-<%= render 'form', album: @album, band: @band, type: :new%>
+<%= render 'form', album: @album, type: :new%>
